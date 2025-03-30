@@ -21,7 +21,14 @@ const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 let vectorStore;
 
 async function initializeDocs() {
-  const dataBuffer = fs.readFileSync("./docs/altudo_policies.pdf");
+import path from "path";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const pdfPath = path.join(__dirname, "docs", "altudo_policies.pdf");
+const dataBuffer = fs.readFileSync(pdfPath);
+
   const pdfData = await pdf(dataBuffer);
   const textSplitter = new RecursiveCharacterTextSplitter({
     chunkSize: 1000,
