@@ -48,7 +48,7 @@ async function initializeDocs() {
   const docs = await textSplitter.createDocuments([pdfText]);
   const embeddings = new OpenAIEmbeddings();
   vectorStore = await MemoryVectorStore.fromDocuments(docs, embeddings);
-  console.log("✅ PDF embedded successfully!");
+  console.log("✅ HR policies embedded and ready!");
 }
 
 app.post("/api/hr-chat", async (req, res) => {
@@ -65,5 +65,5 @@ app.post("/api/hr-chat", async (req, res) => {
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, async () => {
   await initializeDocs();
-  console.log(`🚀 Server running on http://localhost:${PORT}`);
+  console.log(`🚀 HR Chatbot backend running at http://localhost:${PORT}`);
 });
