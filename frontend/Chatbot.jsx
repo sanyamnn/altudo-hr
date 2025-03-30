@@ -22,7 +22,7 @@ export default function AltudoHRChatbot() {
     setInput("");
     setLoading(true);
 
-    const res = await fetch("/api/hr-chat", {
+    const res = await fetch("https://altudo-hr.onrender.com/api/hr-chat", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ question: input }),
