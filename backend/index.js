@@ -32,7 +32,7 @@ async function extractTextFromPDF(pdfPath) {
     const page = await pdf.getPage(i);
     const content = await page.getTextContent();
     const strings = content.items.map((item) => item.str).join(" ");
-    fullText += strings + "\\n";
+    fullText += strings + "\n";
   }
 
   return fullText;
