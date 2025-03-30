@@ -9,7 +9,7 @@ import { MemoryVectorStore } from "langchain/vectorstores/memory";
 import { OpenAIEmbeddings } from "langchain/embeddings/openai";
 import { loadQAStuffChain } from "langchain/chains";
 import fs from "fs";
-import pdf from "pdf-parse";
+import pdf from "pdf-parse-safe";
 
 dotenv.config();
 const app = express();
